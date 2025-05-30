@@ -10,7 +10,10 @@ import SignUp from "../Pages/SignUp/SignUp";
 import Sceret from "../Pages/Shared/Sceret";
 import PrivetRoute from "./PrivetRoute";
 import Dashboard from "../Layout/Dashboard";
-import Card from "../Pages/Dashboard/card";
+import AllUsers from "../Pages/Dashboard/AllUsers";
+import Card from "../Pages/Dashboard/Card";
+import AddItem from "../Pages/Dashboard/AddItem";
+import AdminRouter from '../Routes/AdminRoute';
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -43,6 +46,7 @@ export const router = createBrowserRouter([
     ]
 
   },
+
   {
     path:'dashboard',
     element:<PrivetRoute><Dashboard></Dashboard></PrivetRoute>,
@@ -50,6 +54,15 @@ export const router = createBrowserRouter([
       {
         path:'card',
         element:<Card></Card>
+      },
+      //Admin route
+      {
+        path:'allusers',
+        element:<AdminRouter><AllUsers></AllUsers></AdminRouter>
+      },
+      {
+        path:'additem',
+        element:<AdminRouter><AddItem></AddItem></AdminRouter>
       }
     ]
   },

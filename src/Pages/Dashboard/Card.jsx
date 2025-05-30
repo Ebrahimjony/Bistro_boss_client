@@ -19,7 +19,8 @@ const Card = () => {
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
             confirmButtonText: "Yes, delete it!"
-        }).then((result) => {
+        })
+        .then((result) => {
             if (result.isConfirmed) {
                 axiosSecure.delete(`/cards/${id}`)
                     .then(res => {
