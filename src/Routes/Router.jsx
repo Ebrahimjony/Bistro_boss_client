@@ -14,6 +14,7 @@ import AllUsers from "../Pages/Dashboard/AllUsers";
 import Card from "../Pages/Dashboard/Card";
 import AddItem from "../Pages/Dashboard/AddItem";
 import AdminRouter from '../Routes/AdminRoute';
+import ManageItem from "../Pages/Dashboard/ManageItem";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -59,6 +60,10 @@ export const router = createBrowserRouter([
       {
         path:'allusers',
         element:<AdminRouter><AllUsers></AllUsers></AdminRouter>
+      },
+         {
+        path:'manageItem',
+        element:<AdminRouter><ManageItem></ManageItem></AdminRouter>
       },
       {
         path:'additem',
