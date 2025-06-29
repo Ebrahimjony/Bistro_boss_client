@@ -21,6 +21,7 @@ const AddItem = () => {
                 'Content-Type': 'multipart/form-data',
             }
         });
+        console.log(res.data)
         if (res.data.success) {
             const addItem = {
                 name: data.name,
@@ -35,7 +36,7 @@ const AddItem = () => {
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
-                    title: `${data.name} is added the menu item`,
+                    title: ' is added the menu item',
                     showConfirmButton: false,
                     timer: 1500
                 });

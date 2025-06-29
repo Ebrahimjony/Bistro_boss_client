@@ -15,6 +15,9 @@ import Card from "../Pages/Dashboard/Card";
 import AddItem from "../Pages/Dashboard/AddItem";
 import AdminRouter from '../Routes/AdminRoute';
 import ManageItem from "../Pages/Dashboard/ManageItem";
+import UpdateItem from "../Pages/Dashboard/UpdateItem";
+import Payment from "../Pages/Dashboard/Payment";
+import PaymentHistory from "../Pages/Dashboard/PaymentHistory";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -25,49 +28,65 @@ export const router = createBrowserRouter([
         element: <Home></Home>
       },
       {
-        path:'/menu',
-        element:<Menu></Menu>
+        path: '/menu',
+        element: <Menu></Menu>
       },
       {
-        path:'/order/:category',
-        element:<Order></Order>
+        path: '/order/:category',
+        element: <Order></Order>
       },
       {
-        path:'/login',
-        element:<Login></Login>
+        path: '/login',
+        element: <Login></Login>
       },
       {
-        path:'/signup',
-        element:<SignUp></SignUp>
+        path: '/signup',
+        element: <SignUp></SignUp>
       },
       {
-        path:'/secret',
-        element:<PrivetRoute><Sceret></Sceret></PrivetRoute>
+        path: '/secret',
+        element: <PrivetRoute><Sceret></Sceret></PrivetRoute>
       }
     ]
 
   },
 
   {
-    path:'dashboard',
-    element:<PrivetRoute><Dashboard></Dashboard></PrivetRoute>,
-    children:[
+    path: 'dashboard',
+    element: <PrivetRoute><Dashboard></Dashboard></PrivetRoute>,
+    children: [
+      //user router
       {
-        path:'card',
-        element:<Card></Card>
+        path: 'card',
+        element: <Card></Card>
       },
+      {
+        path:'payment',
+        element:<Payment></Payment>
+      },
+      {
+        path:'paymenthostory',
+        element:<PaymentHistory></PaymentHistory>
+      },
+
+
       //Admin route
       {
-        path:'allusers',
-        element:<AdminRouter><AllUsers></AllUsers></AdminRouter>
-      },
-         {
-        path:'manageItem',
-        element:<AdminRouter><ManageItem></ManageItem></AdminRouter>
+        path: 'allusers',
+        element: <AdminRouter><AllUsers></AllUsers></AdminRouter>
       },
       {
-        path:'additem',
-        element:<AdminRouter><AddItem></AddItem></AdminRouter>
+        path: 'manageItem',
+        element: <AdminRouter><ManageItem></ManageItem></AdminRouter>
+      },
+      {
+        path: 'updateItem/:id',
+        element: <AdminRouter><UpdateItem></UpdateItem></AdminRouter>,
+        loader: ({ params }) => fetch(`http://localhost:5000/menu/${params.id}`)
+      },
+      {
+        path: 'additem',
+        element: <AdminRouter><AddItem></AddItem></AdminRouter>
       }
     ]
   },

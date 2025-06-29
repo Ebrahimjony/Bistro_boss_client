@@ -2,6 +2,7 @@ import { FaTrashAlt } from "react-icons/fa";
 import useCard from "../../hooks/useCard";
 import Swal from "sweetalert2";
 import useAxios from "../../hooks/useAxios";
+import { Link } from "react-router-dom";
 
 
 const Card = () => {
@@ -47,7 +48,9 @@ const Card = () => {
             <div className="flex justify-evenly mt-4">
                 <h2 className="text-3xl">Item:{card.length}</h2>
                 <h2 className="text-xl">Total Price{totalPrice}</h2>
-                <button className="btn btn-primary">Pay</button>
+                <Link to={'/dashboard/payment'}>
+                <button disabled={!card.length}className="btn btn-primary">Pay</button>
+                </Link>
             </div>
             <div className="">
                 <div className="overflow-x-auto">

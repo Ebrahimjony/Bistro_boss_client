@@ -58,7 +58,7 @@ const Dashboard = () => {
                             <li>
                                 <NavLink to='/dashboard/payment'>
                                     <FaCalculator></FaCalculator>
-                                    PAYMENT HISTORY
+                                    PAYMENT SYSTEM
                                 </NavLink>
                             </li>
                             <li>
@@ -74,9 +74,9 @@ const Dashboard = () => {
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to='/dashboard/booking'>
+                                <NavLink to='/dashboard/paymenthostory'>
                                     <SiFacebookgaming></SiFacebookgaming>
-                                    MY BOOKIMG
+                                    PAYMENT HISTORY
                                 </NavLink>
                             </li>
                         </>
