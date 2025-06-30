@@ -5,11 +5,15 @@ import { AuthContext } from '../../Provoder/AuthProvider';
 import { FaShoppingCart } from 'react-icons/fa';
 import useCard from '../../hooks/useCard';
 import { auth } from '../../Firebase/firebase.config';
+import useAdmin from '../../hooks/useAdmin';
+import useAuth from '../../hooks/useAuth';
 
 const NavBar = () => {
 
   const { user, logOut } = useContext(AuthContext)
   const [card] = useCard();
+  const [isAdmin] = useAdmin();
+
 
   const handleLogOut = () => {
     logOut()
@@ -19,6 +23,12 @@ const NavBar = () => {
     <li><Link to='/menu'>Menu</Link></li>
     <li><Link to='/order/salads'>Order Food</Link></li>
     <li><Link to='/secret'>Secret</Link></li>
+    {
+      user && isAdmin && <li> <Link to='/dashboard/adminhome'>Dashboard</Link></li>
+    }
+    {
+      user && !isAdmin && <li> <Link to='/dashboard/userhome'>Dashboard</Link></li>
+    }
     <li><Link to='/signup'>SignUp</Link></li>
     <li><Link to='dashboard/card'>
       <div className='btn'>
