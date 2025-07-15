@@ -20,16 +20,16 @@ const NavBar = () => {
   }
   const NavOption = <>
     <li><Link to='/'>Home</Link></li>
-    <li><Link to='/menu'>Menu</Link></li>
+
+    {/* <li><Link to='/menu'>Menu</Link></li> */}
     <li><Link to='/order/salads'>Order Food</Link></li>
-    <li><Link to='/secret'>Secret</Link></li>
+    {/* <li><Link to='/secret'>Secret</Link></li> */}
     {
       user && isAdmin && <li> <Link to='/dashboard/adminhome'>Dashboard</Link></li>
     }
     {
       user && !isAdmin && <li> <Link to='/dashboard/userhome'>Dashboard</Link></li>
     }
-    <li><Link to='/signup'>SignUp</Link></li>
     <li><Link to='dashboard/card'>
       <div className='btn'>
         <FaShoppingCart></FaShoppingCart>
@@ -38,9 +38,10 @@ const NavBar = () => {
       </div>
 
     </Link></li>
+    <li><Link to='/signup'>SignUp</Link></li>
     {
       user ? <>
-        <button onClick={handleLogOut} className='btn justify-center btn-ghost'>Logout</button>
+        <Link onClick={handleLogOut} className='btn justify-center btn-ghost'>Logout</Link>
       </> :
         <>
           <li><Link to='/login'>Login</Link></li>
@@ -67,8 +68,13 @@ const NavBar = () => {
                 d="M4 6h16M4 12h8m-8 6h16" />
             </svg>
           </div>
+          <ul
+            tabIndex={0}
+            className="menu menu-sm dropdown-content bg-red-400 rounded-box z-1 mt-3 w-52 p-2 shadow">
+            {NavOption}
+          </ul>
         </div>
-        <a className="btn btn-ghost text-xl">Bistro boss</a>
+        <a className="btn btn-ghost text-xl"></a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -76,6 +82,8 @@ const NavBar = () => {
         </ul>
       </div>
       <div className="navbar-end">
+        <input type="text" placeholder="Search" className="input bg-slate-500 mr-2 w-24 md:w-auto" />
+       <button className='btn mr-2'>search</button>
         <a className="btn">{user?.displayName}</a>
       </div>
     </div>

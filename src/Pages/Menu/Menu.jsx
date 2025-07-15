@@ -7,7 +7,6 @@ import menuImg5 from "../../assets/menu/salad-bg.jpg"
 import useMenu from '../../hooks/useMenu';
 import MenuCategory from './MenuCategory';
 import SectionTitle from '../../Components/SectionTitle';
-import { Link } from 'react-router-dom'
 
 const Menu = () => {
     const [menu] = useMenu();

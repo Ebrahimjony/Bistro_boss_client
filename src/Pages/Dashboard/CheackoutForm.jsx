@@ -48,7 +48,7 @@ const CheackoutForm = () => {
             console.log('payment error', error);
             setError(error.message)
         } else {
-            console.log('payment method', paymentMethod)
+            // console.log('payment method', paymentMethod)
             setError('')
         }
 
@@ -80,7 +80,7 @@ const CheackoutForm = () => {
                 date: new Date(),
                 cartIds: cart.map(item => item._id),
                 menuItemIds: cart.map(item => item.menuId),
-                status: 'pandding',
+                status: 'pending',
             }
             const res = await axiosSecure.post('/payments', payment);
             console.log('payment save', res.data);

@@ -5,7 +5,7 @@ const Cover = ({ img, title }) => {
     return (
         <div className="">
             <div
-                className="hero h-[700px] w-[1280px]"
+                className="hero lg: h-[700px] w-[1280px]"
                 style={{ backgroundImage: `url("${img}")` }}>
                 <div className="hero-overlay"></div>
                 <div className="hero-content text-neutral-content text-center">

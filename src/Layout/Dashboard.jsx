@@ -50,12 +50,6 @@ const Dashboard = () => {
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to='/dashboard/resevation'>
-                                    <FaCableCar></FaCableCar>
-                                    RESERVATION
-                                </NavLink>
-                            </li>
-                            <li>
                                 <NavLink to='/dashboard/payment'>
                                     <FaCalculator></FaCalculator>
                                     PAYMENT SYSTEM
@@ -90,15 +84,9 @@ const Dashboard = () => {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to='/menu'>
+                        <NavLink to='/order/salads'>
                             <FaUserMinus></FaUserMinus>
-                            MENU
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to='/shop'>
-                            <FaShopify></FaShopify>
-                            SHOP
+                            ORDER FOOD
                         </NavLink>
                     </li>
                     <li>

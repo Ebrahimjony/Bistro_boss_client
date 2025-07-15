@@ -20,6 +20,8 @@ import Payment from "../Pages/Dashboard/Payment";
 import PaymentHistory from "../Pages/Dashboard/PaymentHistory";
 import AdminHome from "../Pages/Dashboard/AdminHome";
 import UserHome from "../Pages/Dashboard/UserHome";
+import Review from "../Pages/Dashboard/Review";
+import Contruct from "../Pages/Dashboard/Contruct";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -30,8 +32,8 @@ export const router = createBrowserRouter([
         element: <Home></Home>
       },
       {
-        path: '/menu',
-        element: <Menu></Menu>
+        // path: '/menu',
+        // element: <Menu></Menu>
       },
       {
         path: '/order/:category',
@@ -48,6 +50,10 @@ export const router = createBrowserRouter([
       {
         path: '/secret',
         element: <PrivetRoute><Sceret></Sceret></PrivetRoute>
+      },
+      {
+        path:'/contact',
+        element:<Contruct></Contruct>
       }
     ]
 
@@ -74,6 +80,10 @@ export const router = createBrowserRouter([
       {
         path:'paymenthostory',
         element:<PaymentHistory></PaymentHistory>
+      },
+      {
+        path:'review',
+        element:<Review></Review>
       },
 
 

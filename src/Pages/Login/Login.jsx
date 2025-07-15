@@ -1,4 +1,6 @@
 import { useContext } from 'react';
+import Lottie from 'lottie-react';
+import animationData from '../../assets/imagrs/Animation - 1752091901760 (1).json'
 import { useEffect, useState } from 'react';
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { AuthContext } from '../../Provoder/AuthProvider';
@@ -16,9 +18,10 @@ const Login = () => {
 
   const from = location.state?.from?.pathname || "/";
 
-  useEffect(() => {
-    loadCaptchaEnginge(6);
-  }, [])
+  // useEffect(() => {
+  //   loadCaptchaEnginge(6);
+  // }, [])\
+
   const handleLogin = (e) => {
     e.preventDefault()
     const form = e.target;
@@ -53,7 +56,8 @@ const Login = () => {
       })
 
   }
-  const handleCaptchaBtn = (e) => {
+  {/*
+ const handleCaptchaBtn = (e) => {
     const user_captcha_value = e.target.value;
     if (validateCaptcha(user_captcha_value)) {
       setDisabled(false);
@@ -62,14 +66,15 @@ const Login = () => {
       setDisabled(true);
     }
   }
+  */}
+
   return (
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content flex-col lg:flex-row">
         <div className="text-center md:w-1/2 lg:text-left">
 
           <p className="py-6">
-            Provident cupiditate voluptatem et in.
-            quasi. In deleniti eaque aut repudiandae et a id nisi.
+            <Lottie animationData={animationData}></Lottie>
           </p>
         </div>
         <div className="card bg-base-100 md:w-1/2 max-w-sm shrink-0 shadow-2xl">
@@ -81,16 +86,21 @@ const Login = () => {
               <label className="label">Password</label>
               <input type="password" name="password" className="input" placeholder="Password" />
               <div><a className="link link-hover">Forgot password?</a></div>
+              {
+                /*
+                 <LoadCanvasTemplate />
 
-              <LoadCanvasTemplate />
-              <input type="captcha" onBlur={handleCaptchaBtn} name="captcha" className="input" placeholder="match the avobe categoris" />
-              {/* TODO:disable part if work ex[disabled={disabled}] */}
-              <button type='submit' disabled={false} className="btn btn-neutral mt-4">Login</button>
+                   <input type="captcha" onBlur={handleCaptchaBtn} name="captcha" className="input" placeholder="match the avobe categoris" />
+                    //TODO:disable part if work example[disabled={disabled}] 
+                  
+                */
+              }
+                <button type='submit' disabled={false} className="btn btn-neutral mt-4">Login</button>
             </form>
-            <p><small>here<Link to='/signup'>create an account</Link></small></p>
+            <p><small className=' text-green-400'>here ! <Link to='/signup'>create an account</Link></small></p>
             <div className="divider m-0"></div>
           </div>
-          <div className="-mt-8 p-3">
+          <div className="-mt-8 p-3 d-flex items-center justify-center">
             <SocalLoginGoogle className="ml-4"></SocalLoginGoogle>
           </div>
         </div>

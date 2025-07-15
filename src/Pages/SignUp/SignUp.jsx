@@ -1,11 +1,14 @@
-import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provoder/AuthProvider";
 import { useForm } from "react-hook-form"
+import { useContext } from "react";
+import animationData from "../../assets/imagrs/Animation - 1752091901760 (1).json";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import SocalLoginGoogle from "../../Components/SocalLoginGoogle";
+import Lottie from "lottie-react";
+
 const SignUp = () => {
     const { createUser, updateUserProfile, logOut } = useAuth()
     const navigate = useNavigate()
@@ -68,8 +71,7 @@ const SignUp = () => {
                 <div className="text-center md:w-1/2 lg:text-left">
 
                     <p className="py-6">
-                        Provident cupiditate voluptatem et in.
-                        quasi. In deleniti eaque aut repudiandae et a id nisi.
+                <Lottie animationData={animationData}></Lottie>
                     </p>
                 </div>
                 <div className="card bg-base-100 md:w-1/2 max-w-sm shrink-0 shadow-2xl">
@@ -104,11 +106,9 @@ const SignUp = () => {
 
                             {errors.password?.type === "minLength" && <span className="text-red-500">Password must be 6 caracter</span>}
                             {errors.password?.type === "pattern" && <span className="text-red-500">Password must be minimum  uppercase special case letter digits lowercase letters.</span>}
-
-                            <div><a className="link link-hover">Forgot password?</a></div>
                             <button type='submit' className="btn btn-neutral mt-4">SignUp</button>
                         </form>
-                        <p><small>here<Link to='/login'>have an account</Link></small></p>
+                        <p><small className=' text-green-400'>here ! <Link to='/login'>have an account</Link></small></p>
                         <div className="divider m-0"></div>
                     </div>                 
                     <div className="-mt-8 p-3">
